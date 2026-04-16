@@ -1,4 +1,8 @@
 ---
+import './styles/global.css'
+import Navigation from './components/Navigation.astro'
+import Footer from './components/Footer.astro'
+
 const pageTitle = "About Me";
 
 const identity = {
@@ -13,6 +17,10 @@ const skills = ["Poker", "Drinking", "Drink Mixing", "Philandering", "Philanthro
 const happy = true;
 const finished = false;
 const goal = 42;
+
+const skillColor = "crimson";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 
 <html lang="en">
@@ -22,12 +30,23 @@ const goal = 42;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <style define:vars={{skillColor, fontWeight, textCase}}>
+
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      } 
+
+      .skill {
+        color: var(--skillColor);
+        font-weight: var(--fontWeight);
+        text-transform: var(--textCase);
+      }
+    </style>
+  
 	</head>
 	<body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
-
+    <Navigation />
     <h1>{pageTitle}</h1>
     <h2>...and my new-fangled Astroboy site.</h2>
 
@@ -47,7 +66,7 @@ const goal = 42;
     </ul>
     <p>My skills are:</p>
     <ul>
-      {skills.map((skill) => <li>{skill}</li>)}
+      {skills.map((skill) => <li class="skill">{skill}</li>)}
     </ul>
 
     {happy && <p>I am happy to be learning Astronomicon.</p>}
@@ -56,5 +75,6 @@ const goal = 42;
 
     {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>
 
+    <Footer />
 	</body>
 </html>
