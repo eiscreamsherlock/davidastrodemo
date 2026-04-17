@@ -1,7 +1,8 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: Third Blog Post
 author: Bill Brasky
-description: "I should probably space these posts out rather than all at once..."
+description: "I should probably space these posts out rather than posting all at once..."
 image:
     url: "https://docs.astro.build/assets/rays.webp"
     alt: "The Astro logo on a dark background with rainbow rays."
