@@ -8,12 +8,19 @@ body {
   /* margin: 0 auto; */
   /* padding: 1rem; */
   /* Changing margin and padding for code-stitch nav */
-  margin: 0;
-  padding: 0;
+  margin: 0; 
+  padding: 1rem;
   padding-top: 100px;
-  width: 100%;
+  width: auto;
   max-width: 80ch;
   line-height: 1.5;
+}
+
+/* Add this to BaseLayout.astro to try to get my content to sit better w/ the CS navbar */
+.BaseDiv {
+  margin: auto;
+  padding: 0.5rem;
+  width: auto;
 }
 
 *, *:before, *:after {
