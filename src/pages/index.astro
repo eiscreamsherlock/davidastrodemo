@@ -1,8 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../pages/components/Hero.astro';
 const pageTitle = "Home";
 ---
+<style>
+    h2 {
+        color: crimson;
+        font-size: 2rem;
+        font-color: crimson;
+    }
+</style>
 
 <BaseLayout>
-    <h2>A subtitle fit for an Astro Page!</h2>
+    <div>
+      <Hero />
+      <!-- <h2>Behold!  Something like a landing page!</h2> -->
+    </div>
 </BaseLayout>
