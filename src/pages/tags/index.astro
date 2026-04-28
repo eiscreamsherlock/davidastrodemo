@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Looks for all the markdown posts
+const allPosts = Object.values(import.meta.glob('../posts/*.md', { eager: true }));
+
+// Supposedly this is some TypeScript magic that pulls in a unique list of tags from the 
+// frontmatter of all the posts we scooped up with the import.meta.glob line above
+// TODO: How well does this scale for LOTS of tags.  It's rendered before upload, but
+// that could make build times really long.
+const tags = [...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat())];
+
+const pageTitle = "Tag Index";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <h3>This is a tags page!</h3>
+    <!-- map all the tags to <p> blocks -->
+    <div class="tags">
+      <!-- Map each of the tags from above onto a bunch of links inside paragraphs -->
+      {tags.map((tag) => (
+      <p class="tag"><a href=`/tags/${tag}`>{tag}</a></p>
+      ))}
+    </div>
+</BaseLayout>
+
+<style>
+  a {
+    color: #00539F;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    margin: 0.25em;
+    border: dotted 1px #a1a1a1;
+    border-radius: .5em;
+    padding: .5em 1em;
+    font-size: 1.15em;
+    background-color: #F8FCFD;
+  }
+</style>

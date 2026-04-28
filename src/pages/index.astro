@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Greeting from './components/Greeting.jsx';
 import Hero from '../pages/components/Hero.astro';
 const pageTitle = "Home";
 ---
@@ -11,9 +12,10 @@ const pageTitle = "Home";
     }
 </style>
 
-  <BaseLayout pageTitle={pageTitle}>
-    <div>
-      <Hero />
-      <!-- <h2>Behold!  Something like a landing page!</h2> -->
-    </div>
+<BaseLayout pageTitle={pageTitle}>
+    <h2>This here's a landing page!</h2>
+    <!-- <Greeting messages={["Hi", "Hello", "Willkommen", "Aloha", "Servus", "Hola", "Gruss Gott"]} /> -->
+    <!-- client:load tells the page to re-run the JS on the CLIENT side when the page reloads. -->
+    <!-- This is called a "hydrated" component -->
+    <Greeting client:load messages={["Hej", "Witamy", "Salve", "Bienvenido"]} />
 </BaseLayout>
