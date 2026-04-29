@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: Second Blog Post
 author: Bill Brasky
 description: "After some inintial success, I remembered that I do know computer"

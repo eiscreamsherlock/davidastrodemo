@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: A Post Linked Automagically
 author: Bill Brasky
 description: "This post will show up on its own! (probably)"

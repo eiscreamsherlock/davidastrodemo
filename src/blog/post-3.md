@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: A Post About Goals
 author: Bill Brasky
 description: "I should probably space these posts out rather than posting all at once..."

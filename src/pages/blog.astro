@@ -1,8 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BlogPost from '../components/BlogPost.astro';
+// Changing this to use the getCollection()
 // import.meta.glob returns and array of things that match the regex
-const allPosts = Object.values(import.meta.glob('./posts/*.md', {eager: true}));
+// const allPosts = Object.values(import.meta.glob('./posts/*.md', {eager: true}));
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("blog");
+
 const pageTitle = "Some Words From Me";
 ---
 <!-- TODO: Don't have this be inline styling. -->
@@ -16,14 +20,19 @@ const pageTitle = "Some Words From Me";
 </style>
 
 <BaseLayout pageTitle={pageTitle}>
-    <!-- I don't know if this is the "correct" way to do this ,but it works -->
-    <div>
-        <p>At first, I succeeded.  The end.</p>
-        <ul>
-            <!-- I understand what's happening here.  But I can't seem to find the details of how
-                that .map() method works in the Astro or Vite (where the glob matching comes from)
-                work. -->
-                {allPosts.map((post: any) => <BlogPost url={post.url} title={post.frontmatter.title} />)}
-        </ul>
-    </div>
+  <!-- I don't know if this is the "correct" way to do this ,but it works -->
+  <div>
+    <p>At first, I succeeded.  The end.</p>
+    <ul>
+        <!-- I understand what's happening here.  But I can't seem to find the details of how
+            that .map() method works in the Astro or Vite (where the glob matching comes from)
+            work. -->
+      <!-- Changing this to use the collection slug and schema layout -->
+      <!-- {allPosts.map((post: any) => <BlogPost url={post.url} title={post.frontmatter.title} />)} -->
+      { allPosts.map((post: any) => (
+          <BlogPost url={`/posts/${post.id}/`} title={post.data.title} />
+        ))
+      }
+    </ul>
+  </div>
 </BaseLayout>

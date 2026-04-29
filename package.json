@@ -13,10 +13,10 @@
     "generate-types": "wrangler types"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^13.1.10",
+    "@astrojs/cloudflare": "^13.2.2",
     "@astrojs/preact": "^5.1.2",
     "@astrojs/rss": "^4.0.18",
-    "astro": "^6.1.7",
+    "astro": "^6.1.10",
     "preact": "^10.29.1",
     "wrangler": "^4.83.0"
   },
