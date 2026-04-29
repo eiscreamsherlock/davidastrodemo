@@ -1,8 +1,13 @@
+---
+import logo from '@assets/images/ds_logo.png';
+---
 <header id="cs-navigation">
     <div class="cs-container">
         <!--Nav Logo-->
         <a href="/" class="cs-logo" aria-label="Return to Home page">
-            <img src="../../../src/images/ds_logo.png" alt="DS Logo" width="210" height="29" aria-hidden="true" decoding="async">
+          <img src={logo.src} alt="DS Logo" width="210" height="29" aria-hidden="true" decoding="async" />
+          <!-- <img src={logo.src} alt="DS Logo" width="210" height="29" aria-hidden="true" decoding="async" /> -->
+          <!-- <img src="../../src/images/ds_logo.png" alt="DS Logo" width="210" height="29" aria-hidden="true" decoding="async"> -->
         </a>
         <!--Navigation List-->
         <nav class="cs-nav" aria-label="main navigation">
